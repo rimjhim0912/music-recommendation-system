@@ -13,10 +13,12 @@ st.markdown("""
     color: white;
 }
 
-h1, h2, h3, h4 {
-    color: #ffffff;
+/* Headings */
+h1, h2, h3, h4, label {
+    color: white !important;
 }
 
+/* Buttons */
 .stButton>button {
     background-color: #ff4b4b;
     color: white;
@@ -26,9 +28,20 @@ h1, h2, h3, h4 {
     font-size: 16px;
 }
 
-.stSelectbox label, .stSlider label {
-    color: white !important;
-    font-size: 16px;
+/* Table fix */
+[data-testid="stTable"] {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Dataframe fix */
+[data-testid="stDataFrame"] {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
 }
 </style>
 """, unsafe_allow_html=True)
