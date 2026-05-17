@@ -6,6 +6,32 @@ from sklearn.metrics import silhouette_score
 from sklearn.metrics.pairwise import cosine_similarity
 
 st.set_page_config(page_title="Music Recommender")
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #1e1e2f, #2b5876);
+    color: white;
+}
+
+h1, h2, h3, h4 {
+    color: #ffffff;
+}
+
+.stButton>button {
+    background-color: #ff4b4b;
+    color: white;
+    border-radius: 10px;
+    height: 3em;
+    width: 100%;
+    font-size: 16px;
+}
+
+.stSelectbox label, .stSlider label {
+    color: white !important;
+    font-size: 16px;
+}
+</style>
+""", unsafe_allow_html=True)
 
 st.title("🎵 Music Recommendation System")
 
