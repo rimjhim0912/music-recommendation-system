@@ -62,16 +62,11 @@ selected_song = st.selectbox("Choose a song", song_list)
 
 num = st.slider("Number of recommendations", 3, 10, 5)
 
-col1, col2 = st.columns(2)
+if st.button("🎯 Recommend Similar Songs"):
+    recs1 = recommend(selected_song, num//2)
+    recs2 = recommend_from_cluster(selected_song, num - num//2)
 
-with col1:
-    if st.button("Recommend by Cosine Similarity"):
-        recs = recommend(selected_song, num)
-        st.subheader("🎯 Similar Songs")
-        st.table(recs)
+    final_recs = pd.concat([recs1, recs2]).drop_duplicates().head(num)
 
-with col2:
-    if st.button("Recommend from Same Cluster"):
-        recs = recommend_from_cluster(selected_song, num)
-        st.subheader("🧩 Songs from Same Cluster")
-        st.table(recs)
+    st.subheader("🎵 Recommended Songs For You")
+    st.table(final_recs)
