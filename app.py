@@ -22,10 +22,7 @@ def load_data():
     return df
 
 df = load_data()
-st.success("✅ Dataset Loaded Successfully")
 
-st.write("### Preview")
-st.dataframe(df.head())
 
 # ---------------- FEATURE SCALING ----------------
 features = ['danceability','energy','loudness','speechiness',
@@ -39,8 +36,6 @@ X_scaled = scaler.fit_transform(df[features])
 kmeans = KMeans(n_clusters=8, random_state=42)
 df['cluster'] = kmeans.fit_predict(X_scaled)
 
-score = silhouette_score(X_scaled, df['cluster'])
-st.write(f"### 📏 Silhouette Score of Clustering: {score:.3f}")
 
 # ---------------- RECOMMENDATION FUNCTIONS ----------------
 def recommend(song_name, n=5):
